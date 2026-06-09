@@ -1,5 +1,5 @@
 import restaurantData from "@/data/restaurant-data.json";
-import { useEffect, useRef, useState, useMemo } from "react";
+import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import { Search, X, Leaf, Flame, Star, Wheat, Milk, Nut, Sprout, CircleDot } from "lucide-react";
 
 const RESTAURANT_ID = "jamon-jamon";
@@ -48,10 +48,81 @@ function LogoPlaceholder({ name, primary }: { name: string; primary: string }) {
   );
 }
 
+type ModalItem = { name: string; image: string | null; description: string };
+
+function ImageModal({ item, primary, onClose }: { item: ModalItem; primary: string; onClose: () => void }) {
+  const [phase, setPhase] = useState<"entering" | "open" | "leaving">("entering");
+
+  useEffect(() => {
+    const t = requestAnimationFrame(() => setPhase("open"));
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") handleClose(); };
+    document.addEventListener("keydown", onKey);
+    return () => {
+      cancelAnimationFrame(t);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, []);
+
+  const handleClose = () => {
+    setPhase("leaving");
+    setTimeout(onClose, 220);
+  };
+
+  const isVisible = phase === "open";
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-6"
+      style={{
+        backgroundColor: isVisible ? "rgba(0,0,0,0.6)" : "rgba(0,0,0,0)",
+        transition: "background-color 220ms ease",
+      }}
+      onClick={handleClose}
+    >
+      <div
+        className="relative w-full max-w-[380px] rounded-2xl overflow-hidden shadow-2xl bg-background"
+        style={{
+          transform: isVisible ? "scale(1) translateY(0)" : "scale(0.92) translateY(16px)",
+          opacity: isVisible ? 1 : 0,
+          transition: "transform 220ms cubic-bezier(0.25,0.46,0.45,0.94), opacity 220ms ease",
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Image area */}
+        <div
+          className="w-full aspect-square flex items-center justify-center"
+          style={{ backgroundColor: `${primary}18` }}
+        >
+          {item.image
+            ? <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+            : <span className="text-8xl opacity-20">🍽</span>
+          }
+        </div>
+
+        {/* Info */}
+        <div className="p-5">
+          <h3 className="font-serif text-[18px] font-semibold text-foreground mb-1">{item.name}</h3>
+          <p className="text-[13px] text-muted-foreground leading-relaxed">{item.description}</p>
+        </div>
+
+        {/* Close button */}
+        <button
+          onClick={handleClose}
+          className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 flex items-center justify-center text-white hover:bg-black/60 transition-colors"
+        >
+          <X size={14} strokeWidth={2.5} />
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export default function MenuPage() {
   const restaurant = (restaurantData as typeof restaurantData).find((r) => r.id === RESTAURANT_ID) ?? restaurantData[0];
 
   const [search, setSearch] = useState("");
+  const [modalItem, setModalItem] = useState<ModalItem | null>(null);
+  const openModal = useCallback((item: ModalItem) => setModalItem(item), []);
   const [activeCategory, setActiveCategory] = useState<string>("");
   const categoryRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const tabsRef = useRef<HTMLDivElement>(null);
@@ -101,6 +172,13 @@ export default function MenuPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [restaurant]);
 
+  // Keep the active tab scrolled into view whenever the category changes
+  useEffect(() => {
+    if (!activeCategory || scrollingProgrammatically.current) return;
+    const tab = tabsRef.current?.querySelector(`[data-cat="${activeCategory}"]`) as HTMLElement | null;
+    tab?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  }, [activeCategory]);
+
   const scrollToCategory = (catId: string) => {
     const el = categoryRefs.current[catId];
     if (!el) return;
@@ -134,6 +212,7 @@ export default function MenuPage() {
 
   return (
     <div className="min-h-screen bg-background max-w-[500px] mx-auto">
+      {modalItem && <ImageModal key={modalItem.name} item={modalItem} primary={primary} onClose={() => setModalItem(null)} />}
 
       {/* Hero */}
       <div
@@ -253,7 +332,7 @@ export default function MenuPage() {
                   key={item.id}
                   className={`relative py-4 px-1 ${idx < category.items.length - 1 ? "border-b border-border/50" : ""} ${!item.available ? "opacity-40" : ""}`}
                 >
-                  <div className="flex gap-4 items-start">
+                  <div className="flex gap-3 items-start">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-3 mb-1">
                         <h3 className="text-[14px] font-semibold text-foreground leading-snug tracking-tight">
@@ -293,6 +372,20 @@ export default function MenuPage() {
                         </div>
                       )}
                     </div>
+
+                    {/* Image placeholder */}
+                    {(restaurant as typeof restaurant & { show_images?: boolean }).show_images && (
+                      <button
+                        onClick={() => openModal({ name: item.name, image: item.image, description: item.description })}
+                        className="flex-shrink-0 w-20 h-20 rounded overflow-hidden flex items-center justify-center active:opacity-70 transition-opacity"
+                        style={{ WebkitTapHighlightColor: "transparent", backgroundColor: `${primary}18` }}
+                      >
+                        {item.image
+                          ? <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                          : <span className="opacity-30 text-3xl">🍽</span>
+                        }
+                      </button>
+                    )}
                   </div>
                 </div>
               ))}

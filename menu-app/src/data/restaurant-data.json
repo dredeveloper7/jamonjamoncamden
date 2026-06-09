@@ -6,6 +6,7 @@
     "description": "Discover the taste of Spain with freshly prepared tapas, traditional paellas, premium Iberian ham and sangria by the glass. A relaxed, vibrant atmosphere perfect for sharing food with friends and family.",
     "coverImage": null,
     "logo": null,
+    "show_images": true,
     "theme": {
       "primary": "#8B1a1a",
       "background": "#fdf8f0",
