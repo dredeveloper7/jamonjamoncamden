@@ -1,0 +1,316 @@
+[
+  {
+    "id": "jamon-jamon",
+    "name": "Jamon Jamon",
+    "cuisine": "Spanish Tapas",
+    "description": "Discover the taste of Spain with freshly prepared tapas, traditional paellas, premium Iberian ham and sangria by the glass. A relaxed, vibrant atmosphere perfect for sharing food with friends and family.",
+    "coverImage": null,
+    "logo": null,
+    "theme": {
+      "primary": "#8B1a1a",
+      "background": "#fdf8f0",
+      "surface": "#ffffff",
+      "text": "#2c1a0a",
+      "textMuted": "#8a6a50",
+      "accent": "#f0e4d0"
+    },
+    "categories": [
+      {
+        "id": "tapas-frias",
+        "name": "Tapas Frías",
+        "description": "Cold sharing plates — best enjoyed with a glass of wine",
+        "items": [
+          {
+            "id": "jamon-iberico",
+            "name": "Jamón Ibérico de Bellota",
+            "description": "Hand-carved acorn-fed Iberian ham, aged 36 months. Silky, nutty, and melt-in-the-mouth. Served with pan con tomate.",
+            "price": 18.0,
+            "image": null,
+            "tags": ["popular", "gluten-free", "dairy-free"],
+            "available": true
+          },
+          {
+            "id": "tabla-iberica",
+            "name": "Tabla Ibérica",
+            "description": "A generous board of Jamón Ibérico, Lomo, Salchichón and Chorizo Ibérico. Serves two to share.",
+            "price": 28.0,
+            "image": null,
+            "tags": ["popular", "gluten-free"],
+            "available": true
+          },
+          {
+            "id": "queso-manchego",
+            "name": "Queso Manchego",
+            "description": "Aged Manchego cheese with membrillo (quince paste), honey drizzle and toasted almonds.",
+            "price": 13.0,
+            "image": null,
+            "tags": ["vegetarian", "gluten-free"],
+            "available": true
+          },
+          {
+            "id": "boquerones",
+            "name": "Boquerones en Vinagre",
+            "description": "White anchovies marinated in white wine vinegar, garlic and parsley. A classic Spanish bite.",
+            "price": 9.0,
+            "image": null,
+            "tags": ["gluten-free", "dairy-free"],
+            "available": true
+          },
+          {
+            "id": "ensalada-catalana",
+            "name": "Ensalada Catalana",
+            "description": "Roasted red peppers, grilled aubergine, vine tomatoes, black olives, capers, extra virgin olive oil and sherry vinegar.",
+            "price": 11.0,
+            "image": null,
+            "tags": ["vegan", "gluten-free"],
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "tapas-calientes",
+        "name": "Tapas Calientes",
+        "description": "Hot tapas — freshly prepared and served as they're ready",
+        "items": [
+          {
+            "id": "padron-peppers",
+            "name": "Pimientos de Padrón",
+            "description": "Lightly pan-fried blistered green peppers, lightly salted, mild and smoky — with the occasional spicy surprise!",
+            "price": 8.0,
+            "image": null,
+            "tags": ["vegan", "gluten-free", "popular"],
+            "available": true
+          },
+          {
+            "id": "patatas-bravas",
+            "name": "Patatas Bravas",
+            "description": "Crispy fried potatoes with smoky bravas sauce and house aioli. A non-negotiable order.",
+            "price": 9.0,
+            "image": null,
+            "tags": ["vegetarian", "popular"],
+            "available": true
+          },
+          {
+            "id": "huevos-rotos",
+            "name": "Huevos Rotos",
+            "description": "Crispy fried potatoes topped with perfectly fried eggs, lightly broken. Simple perfection.",
+            "price": 11.0,
+            "image": null,
+            "tags": ["vegetarian", "popular"],
+            "available": true
+          },
+          {
+            "id": "chorizo-vino",
+            "name": "Chorizo al Vino",
+            "description": "Savoury Spanish chorizo slow-cooked in rich red wine, bursting with bold, smoky flavours.",
+            "price": 12.0,
+            "image": null,
+            "tags": ["popular", "dairy-free"],
+            "available": true
+          },
+          {
+            "id": "croquetas-jamon",
+            "name": "Croquetas de Jamón",
+            "description": "Silky jamón béchamel encased in a golden, crispy crumb. Made fresh every morning. Four pieces.",
+            "price": 11.0,
+            "image": null,
+            "tags": ["popular"],
+            "available": true
+          },
+          {
+            "id": "gambas-pil-pil",
+            "name": "Gambas al Pil Pil",
+            "description": "Juicy king prawns sizzling in garlic-infused olive oil with dried chilli and a splash of Manzanilla sherry.",
+            "price": 15.0,
+            "image": null,
+            "tags": ["gluten-free", "dairy-free", "spicy"],
+            "available": true
+          },
+          {
+            "id": "calamares",
+            "name": "Calamares a la Romana",
+            "description": "Crispy squid rings in a light tempura batter, served with lemon and house alioli.",
+            "price": 13.0,
+            "image": null,
+            "tags": ["dairy-free"],
+            "available": true
+          },
+          {
+            "id": "tortilla-espanola",
+            "name": "Tortilla Española",
+            "description": "Thick, slowly cooked Spanish omelette with potato and onion. Served at room temperature — the authentic way.",
+            "price": 10.0,
+            "image": null,
+            "tags": ["vegetarian", "gluten-free"],
+            "available": true
+          },
+          {
+            "id": "albondigas",
+            "name": "Albóndigas en Salsa",
+            "description": "Pork and beef meatballs braised in a rich tomato and saffron sauce, topped with fresh parsley.",
+            "price": 13.0,
+            "image": null,
+            "tags": ["popular"],
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "platos-principales",
+        "name": "Platos Principales",
+        "description": "Main courses — generous dishes for the whole table",
+        "items": [
+          {
+            "id": "paella-valenciana",
+            "name": "Paella Valenciana",
+            "description": "Traditional Valencian rice with free-range chicken, rabbit, green beans, butter beans, rosemary and saffron. Minimum two people.",
+            "price": 22.0,
+            "image": null,
+            "tags": ["gluten-free", "dairy-free", "popular"],
+            "available": true
+          },
+          {
+            "id": "paella-marinera",
+            "name": "Paella Marinera",
+            "description": "Saffron rice with king prawns, mussels, squid, clams and sweet piquillo peppers. Minimum two people.",
+            "price": 26.0,
+            "image": null,
+            "tags": ["gluten-free", "dairy-free", "popular"],
+            "available": true
+          },
+          {
+            "id": "cordero-horno",
+            "name": "Cordero al Horno",
+            "description": "Slow-roasted leg of lamb marinated in thyme, rosemary, red wine and extra virgin olive oil. Served with crispy roasted potatoes and a rich pan jus.",
+            "price": 28.0,
+            "image": null,
+            "tags": ["gluten-free", "popular"],
+            "available": true
+          },
+          {
+            "id": "lubina-plancha",
+            "name": "Lubina a la Plancha",
+            "description": "Grilled sea bass fillet with salsa verde, capers and a saffron-infused olive oil. Served with grilled asparagus.",
+            "price": 26.0,
+            "image": null,
+            "tags": ["gluten-free", "dairy-free"],
+            "available": true
+          },
+          {
+            "id": "pollo-piri-piri",
+            "name": "Pollo al Piri Piri",
+            "description": "Half chicken marinated in Piri Piri sauce, lemon and garlic, grilled and served with patatas bravas.",
+            "price": 22.0,
+            "image": null,
+            "tags": ["gluten-free", "spicy"],
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "postres",
+        "name": "Postres",
+        "description": "Homemade desserts — the sweet end to a Spanish feast",
+        "items": [
+          {
+            "id": "churros",
+            "name": "Churros con Chocolate",
+            "description": "Crispy fried dough dusted with cinnamon sugar, served with a thick, warm Spanish dark chocolate dipping sauce.",
+            "price": 9.0,
+            "image": null,
+            "tags": ["vegetarian", "popular"],
+            "available": true
+          },
+          {
+            "id": "crema-catalana",
+            "name": "Crema Catalana",
+            "description": "Spain's answer to crème brûlée — silky custard with a caramelised sugar crust, scented with orange and cinnamon.",
+            "price": 8.0,
+            "image": null,
+            "tags": ["vegetarian", "gluten-free"],
+            "available": true
+          },
+          {
+            "id": "tarta-santiago",
+            "name": "Tarta de Santiago",
+            "description": "Traditional Galician almond tart dusted with icing sugar in the shape of the Cross of Saint James.",
+            "price": 8.0,
+            "image": null,
+            "tags": ["vegetarian", "gluten-free"],
+            "available": true
+          },
+          {
+            "id": "helado",
+            "name": "Helado Artesanal",
+            "description": "Ask your server for today's selection of house-made ice cream. Usually includes Horchata, Turrón and seasonal fruit.",
+            "price": 7.0,
+            "image": null,
+            "tags": ["vegetarian", "gluten-free"],
+            "available": true
+          }
+        ]
+      },
+      {
+        "id": "bebidas",
+        "name": "Bebidas",
+        "description": "Drinks — wines, sangria and soft options",
+        "items": [
+          {
+            "id": "sangria-roja",
+            "name": "Sangria Roja",
+            "description": "House red wine sangria with Brandy de Jerez, orange, lemon and a dash of cinnamon. Served by the glass or jug.",
+            "price": 8.5,
+            "image": null,
+            "tags": ["vegan", "popular"],
+            "available": true
+          },
+          {
+            "id": "sangria-blanca",
+            "name": "Sangria Blanca",
+            "description": "Crisp white wine sangria with peach, mint and elderflower. Light and refreshing.",
+            "price": 8.5,
+            "image": null,
+            "tags": ["vegan"],
+            "available": true
+          },
+          {
+            "id": "clara-limon",
+            "name": "Clara con Limón",
+            "description": "Spanish lager topped with freshly squeezed lemon. The perfect terrace drink.",
+            "price": 5.5,
+            "image": null,
+            "tags": ["vegan"],
+            "available": true
+          },
+          {
+            "id": "mosto",
+            "name": "Mosto de Uva",
+            "description": "Unfermented grape juice — the classic non-alcoholic Spanish bar staple. Red or white.",
+            "price": 4.0,
+            "image": null,
+            "tags": ["vegan", "gluten-free"],
+            "available": true
+          },
+          {
+            "id": "agua-limon",
+            "name": "Agua de Limón",
+            "description": "House-made still lemonade with fresh lemon, a hint of rosemary and sparkling water.",
+            "price": 4.5,
+            "image": null,
+            "tags": ["vegan", "gluten-free"],
+            "available": true
+          },
+          {
+            "id": "cafe-con-leche",
+            "name": "Café con Leche",
+            "description": "Strong espresso with steamed milk — the way it's served from Madrid to Malaga.",
+            "price": 3.5,
+            "image": null,
+            "tags": ["vegetarian"],
+            "available": true
+          }
+        ]
+      }
+    ]
+  }
+]
